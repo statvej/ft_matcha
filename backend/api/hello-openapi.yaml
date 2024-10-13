@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: matcha-hello-api
+  version: 1.0.0
+servers:
+  - url: localhost:8080
+tags:
+  - name: Hello
+    description: The Hello endpoints for testing
+paths:
+  /api/v1/hello:
+    get:
+      tags:
+        - Hello
+      summary: Get a greeting
+      operationId: getGreeting
+      responses:
+        '200':
+          description: Successful greeting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseMessage'
+components:
+  schemas:
+    ResponseMessage:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string

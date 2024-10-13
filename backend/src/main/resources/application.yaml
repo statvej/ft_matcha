@@ -1,0 +1,17 @@
+app:
+  name: dev-mode-backend
+  rest:
+    port: 8080
+  probes:
+    port: 8080
+  cors:
+    origins: "*"
+    headers: "*"
+springdoc:
+  api-docs:
+    path: /openapi
+  swagger-ui:
+    path: /openapi/ui
+    tags-sorter: alpha
+    operations-sorter: alpha
+  writer-with-order-by-keys: true

@@ -7,6 +7,16 @@ app:
   cors:
     origins: "*"
     headers: "*"
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/matcha
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 springdoc:
   api-docs:
     path: /openapi

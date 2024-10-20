@@ -1,12 +1,26 @@
 package com.matcha.backend.entity;
 
+import com.matcha.backend.converter.InterestEnumJsonConverter;
+import com.matcha.backend.converter.PictureLinkConverter;
 import com.matcha.backend.entity.enums.InterestEnum;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import java.util.UUID;
-import lombok.*;
-
+import com.matcha.backend.entity.enums.SexualOrientationEnum;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
@@ -35,19 +49,49 @@ public class UserEntity {
   @NotBlank
   private String gender;
 
+  private Date dateOfBirth;
+
   private String bio;
 
-  @ElementCollection(targetClass = InterestEnum.class)
-  @Enumerated(EnumType.STRING)
-  @CollectionTable(name = "user_interests", joinColumns = @JoinColumn(name = "user_id"))
-  @Column(name = "interest")
+  private SexualOrientationEnum sexualOrientation;
+
+  private Float fameRating;
+
+  private Date lastOnline;
+
+  private Boolean isOnline;
+
+
+  @Convert(converter = PictureLinkConverter.class)
+  private List<String> pictureLinks;
+
+  @Lob
+  @Convert(converter = InterestEnumJsonConverter.class)
   private List<InterestEnum> interests;
 
   private String lastLocation;
 
-  @OneToMany(mappedBy = "userId")
+  @OneToMany
+  @JoinColumn(name = "liked_user_id")
+  private List<UserEntity> likedUsers;
+
+  @OneToMany
+  @JoinColumn(name = "received_like_id")
+  private List<UserEntity> receivedLikes;
+
+  @OneToMany
+  @JoinColumn(name = "matched_user_id")
+  private List<UserEntity> matchedUsers;
+
+  @OneToMany
+  @JoinColumn(name = "blocked_user_id")
   private List<UserEntity> blockedUsers;
 
-  @OneToMany(mappedBy = "userId")
+  @OneToMany
+  @JoinColumn(name = "viewed_profile_id")
   private List<UserEntity> viewedProfiles;
+
+  @OneToMany
+  @JoinColumn(name = "viewed_by_id")
+  private List<UserEntity> viewedBy;
 }

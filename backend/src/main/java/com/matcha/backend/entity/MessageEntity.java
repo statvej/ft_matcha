@@ -1,22 +1,21 @@
 package com.matcha.backend.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+
 
 @Entity
 @Table(name = "messages")
@@ -27,7 +26,12 @@ public class MessageEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
+  @Column(name = "message_id")
   private UUID messageId;
+
+  @ManyToOne
+  @JoinColumn(name = "chat_id", nullable = false)
+  private ChatEntity chat;
 
   @ManyToOne
   @JoinColumn(name = "sender_id", nullable = false)

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    font-family: 'Lora', serif;
+}
+
 .main {
     display: flex;
     justify-content: center;
@@ -34,12 +40,10 @@ input:focus {
 
 .bottomInput {
     margin-bottom: 5%;
-    /* color: rgb(231, 72, 213); */
     padding-left: 3%;
 }
 
 .topInput {
-    /* color: rgb(231, 72, 213); */
     padding-left: 3%;
 }
 
@@ -49,10 +53,6 @@ input:focus {
     width: 70%;
 }
 
-/* <!-- HTML !-->
-<button class="button-19" role="button">Button 19</button> */
-
-/* CSS */
 .button {
   appearance: button;
   background-color: #1899D6;

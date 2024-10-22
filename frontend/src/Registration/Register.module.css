@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    font-family: 'Lora', serif;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    flex-direction: column;
+    width: 30vw;
+    background-color: #7c3aedd3;
+    border-radius: 10px;
+    gap: 30px;
+    box-shadow: 10px 10px 10px 10px #8888885a;
+}
+
+input {
+    width: 70%;
+    height: 30px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px 5px #654284ba;
+    box-sizing: border-box;
+    padding: 12px 20px;
+}
+
+input::placeholder {
+    color: #8cbde5;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #8cbde5;
+}
+
+.bottomInput {
+    margin-bottom: 5%;
+    padding-left: 3%;
+}
+
+.topInput {
+    padding-left: 3%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.button {
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 30%;
+  box-shadow: 5px 5px 5px 5px #654284ba;
+  cursor: pointer;
+}
+
+#buttonBot::after {
+    background-clip: padding-box;
+    background-color: #6EE7B7;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.button:after {
+  cursor: pointer;
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button,
+.button:focus {
+  user-select: auto;
+}
+
+.button:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button:disabled {
+  cursor: auto;
+}
+
+.button:active {
+  border-width: 4px 0 0;
+  box-shadow: none;
+  background: none;
+}

@@ -83,7 +83,7 @@ input:focus {
   white-space: nowrap;
   width: 30%;
   box-shadow: 5px 5px 5px 5px #654284ba;
-  /* margin-left: 2%; */
+  cursor: pointer;
 }
 
 #buttonBot::after {
@@ -102,6 +102,7 @@ input:focus {
 }
 
 .button:after {
+  cursor: pointer;
   background-clip: padding-box;
   background-color: #1CB0F6;
   border: solid transparent;
